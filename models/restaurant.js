@@ -13,6 +13,9 @@ const restaurantSchema = new Schema({
     rating: {
         type: Number,
     },
+    phoneNum: {
+        type: String
+    },
     reviews: [{
         type: Schema.Types.ObjectId,
         ref: 'Review'
