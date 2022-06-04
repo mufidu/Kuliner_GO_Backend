@@ -2,7 +2,7 @@ if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
 
-const Restaurant = require('./../models/restaurant');
+const Restaurant = require('../models/restaurant');
 
 const mongoose = require('mongoose');
 

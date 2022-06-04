@@ -29,8 +29,7 @@ const restaurantSchema = new Schema({
         ref: 'Review'
     }],
     picture: {
-        data: Buffer,
-        contentType: String
+        type: String,
     }
 });
 

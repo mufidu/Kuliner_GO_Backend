@@ -1,0 +1,44 @@
+const express = require('express')
+const User = require('./../models/user')
+const router = express.Router()
+
+router.use(function (req, res, next) {
+
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    // Pass to next layer of middleware
+    next();
+});
+
+router.get('/', (req, res) => {
+    User.find({}).then((users) => {
+        res.send(users);
+    })
+});
+
+// router.get('/new', (req, res) => {
+//     res.send('Adding new user');
+// })
+
+// router.get('/edit/:id', async (req, res) => {
+//     const user = await User.findById(req.params.id)
+//     res.send("Editing " + user.username)
+// })
+
+router.get('/:id', async (req, res) => {
+    const user = await User.findOne({ id: req.params._id })
+    res.send(user)
+})
+
+module.exports = router
