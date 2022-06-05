@@ -33,7 +33,7 @@ router.get('/new', (req, res) => {
     res.send('Adding new review');
 })
 
-router.get('/edit/:id', async (req, res) => {
+router.put('/edit/:id', async (req, res) => {
     const review = await Review.findById(req.params.id)
     const user = await User.findById(review.user)
     const restaurant = await Restaurant.findById(review.restaurant)
