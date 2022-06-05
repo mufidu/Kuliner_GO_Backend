@@ -27,17 +27,8 @@ router.get('/', (req, res) => {
     })
 });
 
-// router.get('/new', (req, res) => {
-//     res.send('Adding new user');
-// })
-
-// router.get('/edit/:id', async (req, res) => {
-//     const user = await User.findById(req.params.id)
-//     res.send("Editing " + user.username)
-// })
-
 router.get('/:id', async (req, res) => {
-    const user = await User.findOne({ id: req.params._id })
+    const user = await User.findById(req.params.id)
     res.send(user)
 })
 

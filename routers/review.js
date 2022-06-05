@@ -50,7 +50,7 @@ router.put('/edit/:id', async (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
-    const review = await Review.findOne({ id: req.params._id })
+    const review = await Review.findById(req.params.id)
     const user = await User.findById(review.user)
     const restaurant = await Restaurant.findById(review.restaurant)
     res.send(user.username + " reviewed " + restaurant.name + " with " + review.rating + " stars")

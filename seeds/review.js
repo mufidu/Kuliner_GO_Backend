@@ -3,6 +3,8 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const Review = require('../models/review');
+const User = require('../models/user');
+const Restaurant = require('../models/restaurant');
 
 const mongoose = require('mongoose');
 
@@ -22,16 +24,35 @@ db.once('open', () => {
 const seedDB = async () => {
     // Remove all users before seeding
     await Review.deleteMany({});
+
+    const restaurants = await Restaurant.find({});
+    const restaurantIDs = restaurants.map(restaurant => restaurant._id);
+
+    const users = await User.find({});
+    const userIDs = users.map(user => user._id);
+
+    // Get a random user ID
+    const getRandomUserID = () => {
+        const randomIndex = Math.floor(Math.random() * userIDs.length);
+        return userIDs[randomIndex];
+    }
+
+    // Get a random restaurant ID
+    const getRandomRestaurantID = () => {
+        const randomIndex = Math.floor(Math.random() * restaurantIDs.length);
+        return restaurantIDs[randomIndex];
+    }
+
     const reviews = [
         {
-            user: "6299870b0aee2c3904f70152",
-            restaurant: "62996f6cc282bae78541035b",
+            user: getRandomUserID(),
+            restaurant: getRandomRestaurantID(),
             rating: 5,
             comment: "Great food! Paling suka makan di sini kalo pulang kerja.",
         },
         {
-            user: "6299870b0aee2c3904f70154",
-            restaurant: "62996f6cc282bae78541035d",
+            user: getRandomUserID(),
+            restaurant: getRandomRestaurantID(),
             rating: 4,
             comment: "Good food! Makanannya enak, cuma tempat parkirnya aja yang kurang luas.",
         },
