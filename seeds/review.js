@@ -77,14 +77,63 @@ const seedDB = async () => {
         {
             user: getRandomUserID(),
             restaurant: getRandomRestaurantID(),
-            rating: 2,
-            comment: "Ga enak.",
+            rating: 5,
+            comment: "Enak pol.",
         },
         {
             user: getRandomUserID(),
             restaurant: getRandomRestaurantID(),
             rating: 5,
             comment: "Superb!",
+        },
+        {
+            user: getRandomUserID(),
+            restaurant: getRandomRestaurantID(),
+            rating: 4,
+            comment: "B aja tapi nyaman.",
+
+        },
+        {
+            user: getRandomUserID(),
+            restaurant: getRandomRestaurantID(),
+            rating: 4,
+            comment: "Enak banget.",
+        },
+        {
+            user: getRandomUserID(),
+            restaurant: getRandomRestaurantID(),
+            rating: 5,
+            comment: "Puas!",
+        },
+        {
+            user: getRandomUserID(),
+            restaurant: getRandomRestaurantID(),
+            rating: 5,
+            comment: "Fantastic!",
+        },
+        {
+            user: getRandomUserID(),
+            restaurant: getRandomRestaurantID(),
+            rating: 5,
+            comment: "Great experience!",
+        },
+        {
+            user: getRandomUserID(),
+            restaurant: getRandomRestaurantID(),
+            rating: 4,
+            comment: "Good food!",
+        },
+        {
+            user: getRandomUserID(),
+            restaurant: getRandomRestaurantID(),
+            rating: 5,
+            comment: "Great food!",
+        },
+        {
+            user: getRandomUserID(),
+            restaurant: getRandomRestaurantID(),
+            rating: 5,
+            comment: "Mantap jiwah!",
         },
     ];
 
