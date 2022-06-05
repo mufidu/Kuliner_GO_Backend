@@ -23,16 +23,19 @@ router.use(function (req, res, next) {
     next();
 });
 
+// Get all reviews
 router.get('/', (req, res) => {
     Review.find({}).then((review) => {
         res.send(review);
     })
 });
 
+// Get page of new review form (unfinished)
 router.get('/new', (req, res) => {
     res.send('Adding new review');
 })
 
+// Add new review
 router.post('/', async (req, res) => {
     const review = new Review(req.body)
     const user = await User.findById(review.user)
@@ -42,6 +45,7 @@ router.post('/', async (req, res) => {
     })
 })
 
+// Edit a review
 router.put('/edit/:id', async (req, res) => {
     const review = await Review.findById(req.params.id)
     const user = await User.findById(review.user)
@@ -49,11 +53,19 @@ router.put('/edit/:id', async (req, res) => {
     res.send("Editing review by " + user.username + " for " + restaurant.name)
 })
 
+// Get a review's detail
 router.get('/:id', async (req, res) => {
     const review = await Review.findById(req.params.id)
     const user = await User.findById(review.user)
     const restaurant = await Restaurant.findById(review.restaurant)
     res.send(user.username + " reviewed " + restaurant.name + " with " + review.rating + " stars")
+})
+
+// Delete a review
+router.delete('/:id', async (req, res) => {
+    Review.findByIdAndRemove(req.params.id).then((review) => {
+        res.send(review)
+    })
 })
 
 module.exports = router

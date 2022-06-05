@@ -23,6 +23,7 @@ db.once('open', () => {
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 app.use('/restaurants', require('./routers/restaurant'));
 app.use('/users', require('./routers/user'));
 app.use('/reviews', require('./routers/review'));

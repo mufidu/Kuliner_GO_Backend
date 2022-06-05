@@ -22,12 +22,14 @@ router.use(function (req, res, next) {
     next();
 });
 
+// Get all restaurants
 router.get('/', (req, res) => {
     Restaurant.find({}).then((restaurants) => {
         res.send(restaurants);
     })
 });
 
+// Get restaurant's detail
 router.get('/:id', async (req, res) => {
     const restaurant = await Restaurant.findById(req.params.id)
     res.send(restaurant)

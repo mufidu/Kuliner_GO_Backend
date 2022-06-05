@@ -21,12 +21,14 @@ router.use(function (req, res, next) {
     next();
 });
 
+// Get all users
 router.get('/', (req, res) => {
     User.find({}).then((users) => {
         res.send(users);
     })
 });
 
+// Get a user's detail
 router.get('/:id', async (req, res) => {
     const user = await User.findById(req.params.id)
     res.send(user)

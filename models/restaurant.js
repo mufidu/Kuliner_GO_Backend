@@ -24,7 +24,6 @@ const restaurantSchema = new Schema({
     phone: {
         type: String
     },
-    // Nesting array
     reviews: {
         type: [{
             username: String,
