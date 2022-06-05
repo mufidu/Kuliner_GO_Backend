@@ -30,7 +30,8 @@ const restaurantSchema = new Schema({
             username: String,
             review: String,
             rating: Number,
-            picture: String
+            picture: String,
+            comment: String
         }]
     },
     picture: {
