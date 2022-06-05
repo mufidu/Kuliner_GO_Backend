@@ -24,10 +24,15 @@ const restaurantSchema = new Schema({
     phone: {
         type: String
     },
-    reviews: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Review'
-    }],
+    // Nesting array
+    reviews: {
+        type: [{
+            username: String,
+            review: String,
+            rating: Number,
+            picture: String
+        }]
+    },
     picture: {
         type: String,
     },

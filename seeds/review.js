@@ -93,6 +93,15 @@ const seedDB = async () => {
         review.picture = await getPictures(review.user);
         let newReview = new Review(review);
         await newReview.save();
+
+    }
+
+    // Add reviews to restaurants
+    for (restaurant of restaurants) {
+        // Select only username and picture from users
+        let reviews = await Review.find({ restaurant: restaurant._id }).select('-_id -__v -restaurant -user');
+        restaurant.reviews = reviews;
+        await restaurant.save();
     }
 
     console.log("Database seeded!")
