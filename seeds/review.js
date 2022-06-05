@@ -43,6 +43,18 @@ const seedDB = async () => {
         return restaurantIDs[randomIndex];
     }
 
+    // Get username from user ID
+    const getUsername = async (userID) => {
+        const user = await User.findById(userID);
+        return user.username;
+    }
+
+    // Get pictures from user ID
+    const getPictures = async (userID) => {
+        const user = await User.findById(userID);
+        return user.picture;
+    }
+
     const reviews = [
         {
             user: getRandomUserID(),
@@ -56,9 +68,29 @@ const seedDB = async () => {
             rating: 4,
             comment: "Good food! Makanannya enak, cuma tempat parkirnya aja yang kurang luas.",
         },
+        {
+            user: getRandomUserID(),
+            restaurant: getRandomRestaurantID(),
+            rating: 3,
+            comment: "Makanannya enak tapi pelayanan kurang ramah.",
+        },
+        {
+            user: getRandomUserID(),
+            restaurant: getRandomRestaurantID(),
+            rating: 2,
+            comment: "Ga enak.",
+        },
+        {
+            user: getRandomUserID(),
+            restaurant: getRandomRestaurantID(),
+            rating: 5,
+            comment: "Superb!",
+        },
     ];
 
     for (review of reviews) {
+        review.username = await getUsername(review.user);
+        review.picture = await getPictures(review.user);
         let newReview = new Review(review);
         await newReview.save();
     }
