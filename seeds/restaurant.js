@@ -32,6 +32,9 @@ const seedDB = async () => {
             phone: "0812-1234-1234",
             reviews: [],
             picture: "http://assets.kompasiana.com/items/album/2020/10/12/mcdonalds-5f8468188ede48780604a122.jpg",
+            openHours: "07.00 - 23.00",
+            menu: ["McMuffin", "McChicken"],
+            facilities: ["Meja", "Kursi"],
         },
         {
             name: "KFC",
@@ -42,6 +45,9 @@ const seedDB = async () => {
             phone: "0812-1234-1234",
             reviews: [],
             picture: "https://pict.sindonews.net/dyn/620/pena/news/2021/06/25/178/465806/garagara-pandemi-emiten-pengelola-kfc-jadi-buntung-rp377-miliar-xyd.jpg",
+            openHours: "07.00 - 23.00",
+            menu: ["Ayam Goreng", "Nasi Goreng"],
+            facilities: ["Meja", "Kursi"],
         },
         {
             name: "Burger King",
@@ -52,6 +58,9 @@ const seedDB = async () => {
             phone: "0812-1234-3248",
             reviews: [],
             picture: "https://assets.entrepreneur.com/content/3x2/2000/1645822504-GettyImages-1370781946.jpg?crop=4:3",
+            openHours: "07.00 - 23.00",
+            menu: ["Burger", "Coffee"],
+            facilities: ["Meja", "Kursi"],
         },
         {
             name: "Mie Gacoan",
@@ -62,6 +71,9 @@ const seedDB = async () => {
             phone: "0812-1234-1234",
             reviews: [],
             picture: "https://media.suara.com/pictures/653x366/2022/05/05/20409-tempat-parkir-mie-gacoan-gejayan-kamis-552022.jpg",
+            openHours: "07.00 - 23.00",
+            menu: ["Mie Gacoan", "Mie Goreng"],
+            facilities: ["Meja", "Kursi"],
         },
         {
             name: "Kopi Kenangan",
@@ -72,6 +84,9 @@ const seedDB = async () => {
             phone: "0812-1234-1234",
             reviews: [],
             picture: "https://awsimages.detik.net.id/community/media/visual/2019/10/01/d65943e9-2514-4f61-9c4c-21bd77dd42e0_169.jpeg?w=700&q=90",
+            openHours: "07.00 - 23.00",
+            menu: ["Kopi", "Kopi Susu"],
+            facilities: ["Meja", "Kursi"],
         },
     ];
 

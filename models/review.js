@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const User = require('./../models/user');
 
 const reviewSchema = new Schema({
     user: {
@@ -19,6 +20,15 @@ const reviewSchema = new Schema({
         type: String,
         required: true
     }
+});
+
+// Get username and pictures from user
+reviewSchema.virtual('username').get(function () {
+    return this.user.username;
+});
+
+reviewSchema.virtual('pictures').get(function () {
+    return this.user.pictures;
 });
 
 module.exports = mongoose.model('Review', reviewSchema);

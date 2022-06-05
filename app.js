@@ -1,10 +1,12 @@
-if (process.env.NODE_ENV !== "production") {
-    require('dotenv').config();
-}
-
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config();
+    const morgan = require('morgan');
+    app.use(morgan('dev'));
+}
 
 dbUrl = process.env.MONGODB_URI || 'mongodb://localhost:27017/kulinergo';
 

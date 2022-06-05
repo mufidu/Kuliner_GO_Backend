@@ -30,7 +30,16 @@ const restaurantSchema = new Schema({
     }],
     picture: {
         type: String,
-    }
+    },
+    openHours: {
+        type: String,
+    },
+    menu: {
+        type: [String],
+    },
+    facilities: {
+        type: [String],
+    },
 });
 
 module.exports = mongoose.model('Restaurant', restaurantSchema);

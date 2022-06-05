@@ -27,15 +27,6 @@ router.get('/', (req, res) => {
     })
 });
 
-// router.get('/new', (req, res) => {
-//     res.send('Adding new restaurant');
-// })
-
-// router.get('/edit/:id', async (req, res) => {
-//     const restaurant = await Restaurant.findById(req.params.id)
-//     res.send("Editing " + restaurant.name)
-// })
-
 router.get('/:id', async (req, res) => {
     const restaurant = await Restaurant.findOne({ id: req.params._id })
     res.send(restaurant)

@@ -37,6 +37,27 @@ const seedDB = async () => {
             picture: "https://thispersondoesnotexist.com/image",
             address: "Bojongsoang",
         },
+        {
+            username: "Sebastian",
+            password: "12345",
+            email: "sebastian@gmail.com",
+            picture: "https://thispersondoesnotexist.com/image",
+            address: "Cileunyi",
+        },
+        {
+            username: "Alex",
+            password: "12345",
+            email: "alex@gmail.com",
+            picture: "https://thispersondoesnotexist.com/image",
+            address: "Buah Batu",
+        },
+        {
+            username: "Tony",
+            password: "12345",
+            email: "tony@gmail.com",
+            picture: "https://thispersondoesnotexist.com/image",
+            address: "Cibiru",
+        }
     ];
 
     for (user of users) {
