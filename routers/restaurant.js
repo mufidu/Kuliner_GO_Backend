@@ -1,5 +1,6 @@
 const express = require('express')
 const Restaurant = require('./../models/restaurant')
+const Review = require('./../models/review')
 const router = express.Router()
 
 router.use(function (req, res, next) {
@@ -28,8 +29,15 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-    const restaurant = await Restaurant.findOne({ id: req.params._id })
+    const restaurant = await Restaurant.findById(req.params.id)
     res.send(restaurant)
+})
+
+// Get all restaurant review
+router.get('/:id/reviews', async (req, res) => {
+    const restaurant = await Restaurant.findById(req.params.id)
+    const reviews = await Review.find({ restaurant: restaurant._id })
+    res.send(reviews)
 })
 
 module.exports = router
