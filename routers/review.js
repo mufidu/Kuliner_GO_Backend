@@ -35,8 +35,8 @@ router.get('/new', (req, res) => {
 
 router.post('/', async (req, res) => {
     const review = new Review(req.body)
-    const user = await User.findOne({ id: req.body.user })
-    const restaurant = await Restaurant.findOne({ id: req.body.restaurant })
+    const user = await User.findById(review.user)
+    const restaurant = await Restaurant.findById(review.restaurant)
     review.save().then((review) => {
         res.send('Review for ' + restaurant.name + ' by ' + user.username + ' with ' + review.rating + ' stars added')
     })
